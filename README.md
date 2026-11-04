@@ -4,6 +4,8 @@
 
 在 macOS 菜单栏，随时查看 Codex 和 Claude Code 对话的运行状态。
 
+**[下载 DMG（Apple 芯片）](https://github.com/shawnweasley/threadlight/releases/download/v0.1.0/Threadlight-0.1.0-macOS-arm64.dmg)** · [版本说明](https://github.com/shawnweasley/threadlight/releases/tag/v0.1.0)
+
 ![macOS 13+](https://img.shields.io/badge/macOS-13%2B-000000?logo=apple)
 ![Swift 6](https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
