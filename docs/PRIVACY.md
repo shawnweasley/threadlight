@@ -1,0 +1,28 @@
+# 隐私与状态文件
+
+Threadlight 无网络请求、遥测、账号系统或上报服务。测试夹具与公开演示图均使用合成数据。
+
+## 读取
+
+- Codex：状态数据库的 ID、显示名称、日志路径、归档/来源与更新时间元数据。名称缺失时回退到标题列；部分版本的标题可能来自用户首条输入，因此它仍应视为私人数据。
+- Codex：本地全局状态中的桌面已读标记，及认证模式/账户标识的本机身份摘要计算。已有令牌不会被输出或持久化到 Threadlight 的缓存。
+- Codex：每个变化日志最多 64 KB，事件类型匹配只看各行前 512 字节。原始缓冲可能包含正文片段，不会按消息解析或另行保存。
+- Claude Code：每个小型会话文件最多 4 KB；完成任务的桌面元数据最多读取前 8 KB，用于 `lastFocusedAt`。不递归读项目日志。
+
+## 写入
+
+| 位置 | 内容 |
+| --- | --- |
+| `~/Library/Application Support/Threadlight/tails-v1.json` | 文件路径、标识、读取游标、已确认状态与事件时间 |
+| `~/Library/Application Support/Threadlight/ledger-v1.json` | 会话 ID、显示名称、编号、运行/完成状态、确认时间 |
+| 本应用偏好域 `org.threadlight.menubar` | 固定开关、原生浮窗位置与宽度 |
+
+不写 Codex 或 Claude 的设置、状态库、日志、hooks 或凭据。
+
+## 卸载
+
+从菜单退出对话灯，再移除 `Threadlight.app` 即停止监控。若不需要保留编号和待查看状态，可自行移除上面的 `Threadlight` 应用数据目录和本应用偏好设置。不需要修改 Codex 或 Claude，也没有额外安装的后台服务。
+
+## 问题反馈
+
+可分享 `--diagnose` 的汇总输出。不要上传 `auth.json`、全局状态文件、整个 Application Support 目录、数据库或真实会话日志。截图公开前请遮住私人对话名称和文件路径。

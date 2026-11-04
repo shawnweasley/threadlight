@@ -1,0 +1,23 @@
+name: macOS
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: macos-14
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_16.2.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: swift test
+      - name: Build app
+        run: ./scripts/build-app.sh
+      - name: Verify signature
+        run: codesign --verify --deep --strict build/Threadlight.app
+      - name: Verify packaged artwork
+        run: build/Threadlight.app/Contents/MacOS/Threadlight --check-assets
+      - name: Build and verify DMG
+        run: ./scripts/build-dmg.sh --skip-build

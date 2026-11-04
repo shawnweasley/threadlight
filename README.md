@@ -1,0 +1,55 @@
+![Threadlight 图标](Assets/app-icon.png)
+
+# Threadlight · 对话灯
+
+在 macOS 菜单栏，随时查看 Codex 和 Claude Code 对话的运行状态。
+
+![macOS 13+](https://img.shields.io/badge/macOS-13%2B-000000?logo=apple)
+![Swift 6](https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+
+## 预览
+
+**菜单栏**
+
+![菜单栏截图](Assets/menu-bar.png)
+
+**固定列表**
+
+![固定任务列表截图](Assets/task-list.png)
+
+*菜单栏为实际截图，列表使用演示任务。*
+
+## 功能
+
+- **一眼看状态**：旋转圆环表示运行中，绿色勾号表示已结束。
+- **独立分批编号**：Codex 用 `1 2 3`，Claude Code 用 `α β γ`；各自列表清空后重新从 `1` / `α` 开始，仍有旧对话时继续递增。
+- **保留完成未读**：查看后移出列表，同一批次内再次运行时沿用原编号。
+- **可固定的置顶列表**：支持拖动、调整宽度，窄窗口自动隐藏右侧状态文字。
+- **本地只读**：无网络请求、无遥测，不修改 Codex 或 Claude 的设置。
+
+Claude 仅支持桌面端 **Code** 会话。
+
+## 安装
+
+需要 **macOS 13+**。当前 DMG 为 **Apple 芯片版**。
+
+1. [下载 DMG 安装包](https://github.com/shawnweasley/threadlight/releases/download/v0.1.0/Threadlight-0.1.0-macOS-arm64.dmg)，将应用拖入「应用程序」。
+2. 启动「对话灯」，从菜单栏查看任务，或选择「固定列表」。
+
+当前为预览版，采用本地签名，尚未经过 Apple 公证。
+
+## 开发
+
+需要 Swift 6 / Xcode 16+，无第三方 Swift 包依赖。
+
+```bash
+swift test
+./scripts/build-dmg.sh
+```
+
+生成的安装包位于 `dist/`。更多信息见[贡献指南](CONTRIBUTING.md)和[隐私说明](docs/PRIVACY.md)。
+
+## 许可与致谢
+
+代码采用 [MIT License](LICENSE)。感谢 [codex-status-bar](https://github.com/yuriipalam/codex-status-bar) 带来的最初灵感；实现来源见[说明](docs/PROVENANCE.md)。Codex 图标为第三方资源，见[声明](THIRD_PARTY_NOTICES.md)。本项目与 OpenAI、Anthropic 无官方关联。
