@@ -53,3 +53,5 @@ swift test
 ## 许可与致谢
 
 代码采用 [MIT License](LICENSE)。感谢 [codex-status-bar](https://github.com/yuriipalam/codex-status-bar) 带来的最初灵感；实现来源见[说明](docs/PROVENANCE.md)。Codex 图标为第三方资源，见[声明](THIRD_PARTY_NOTICES.md)。本项目与 OpenAI、Anthropic 无官方关联。
+
+认可并支持 [LINUX DO](https://linux.do/) 社区：真诚、友善、团结、专业。
